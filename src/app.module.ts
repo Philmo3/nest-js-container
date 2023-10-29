@@ -1,3 +1,4 @@
+import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { User } from 'src/entities/user.entity';
 import { Module } from '@nestjs/common';
@@ -16,6 +17,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true,
     }),
     AuthModule,
+    UserModule,
   ],
   controllers: [],
   providers: [],

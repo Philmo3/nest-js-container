@@ -10,10 +10,24 @@ export class UserService {
   ) {}
 
   getAll() {
-    return this.userRepository.find();
+    return this.userRepository.find({ take: 10 });
   }
 
   findOne(email: string) {
     return this.userRepository.findOneBy({ email });
+  }
+
+  async create(
+    email: string,
+    hashPassword: string,
+    firstName: string,
+    lastName: string,
+  ) {
+    return this.userRepository.save({
+      email,
+      password: hashPassword,
+      firstName,
+      lastName,
+    });
   }
 }
